@@ -1,0 +1,24 @@
+{
+  "name": "bitsotrading",
+  "version": "1.0.0",
+  "description": "TradingCrypto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OlafG",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "build-query-string": "^1.2.1",
+    "ccxt": "^1.39.33",
+    "chalk": "^4.1.0",
+    "cron": "^1.8.2",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "httpie": "^1.1.2",
+    "mysql": "^2.18.1",
+    "node-cron": "^2.0.3",
+    "trading-signals": "^1.2.1"
+  }
+}
