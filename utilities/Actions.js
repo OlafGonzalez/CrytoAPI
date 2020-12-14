@@ -39,6 +39,16 @@ exports.Withdrawals = async function (currency, amount, address) {
     }
 }
 
+exports.GetWithdrawals = async function () {
+    display.preMessage("WITHDRAWALS");
+    try {
+        let response = await bitsoAPI.getWithdrawals();
+        if (display.checkIfSuccessful("WITHDRAWALS", response)) return response.payload;
+    } catch (Exception) {
+        display.displayError(Exception);
+    }
+}
+
 exports.Orders = async function (book, side, amount, type) {
     display.preMessage("ORDERS", book, side, amount, type);
     try {
@@ -60,7 +70,7 @@ exports.AvailableBooks = async function () {
     }
 }
 
-exports.Ticker = async function (book) {
+exports.GetTicker = async function (book) {
     display.preMessage("TICKER", book);
     try {
         let response = await bitsoAPI.getCurrentTicker(book);

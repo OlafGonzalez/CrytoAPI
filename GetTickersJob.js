@@ -17,20 +17,35 @@ const actions = require('./utilities/Actions');
 */
 
 
-var GetFundingsJob = new CronJob('* * * * *', async function() {
+//async function main (){
+var SaveTickerJob = new CronJob('*/10 * * * * *', async function() {
   var hoy = new Date();
-  console.log(chalk.cyan("GET FUNDINGS JOB STARTS AT: "+formatDate(hoy)));
-  const fundings = await actions.GetFundings();
+  console.log(chalk.cyan("GET TIKERS JOB STARTS AT: "+formatDate(hoy)));
+  const tickerBTCMXN = await actions.GetTicker("btc_mxn");
 
-  fundings.forEach(funding => {
-    query.SaveDepositos(funding.fid,funding.amount,funding.method_name,funding.status,funding.currency,funding.details.sender_name,funding.details.sender_clabe,formatDate(funding.created_at));
-  });
+  console.log(tickerBTCMXN)
+
+  await query.InsertTicker(
+    tikerBTCMXN.book,
+    Number(tickerBTCMXN.volume),
+    Number(tickerBTCMXN.high),
+    Number(tickerBTCMXN.last),
+    Number(tickerBTCMXN.low),
+    Number(tickerBTCMXN.vwap),
+    Number(tickerBTCMXN.ask),
+    Number(tickerBTCMXN.bid),
+    formatDate(hoy)
+  );
 
 }, null, true, 'America/Mexico_City');
 
 
-GetFundingsJob.start();
+SaveTickerJob.start();
 
+
+//}
+
+//main();
 
 
 
