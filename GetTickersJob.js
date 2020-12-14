@@ -26,7 +26,7 @@ var SaveTickerJob = new CronJob('*/10 * * * * *', async function() {
   console.log(tickerBTCMXN)
 
   await query.InsertTicker(
-    tikerBTCMXN.book,
+    tickerBTCMXN.book,
     Number(tickerBTCMXN.volume),
     Number(tickerBTCMXN.high),
     Number(tickerBTCMXN.last),

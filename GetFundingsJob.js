@@ -16,8 +16,8 @@ const actions = require('./utilities/Actions');
 # * * * * * *
 */
 
-
-var GetFundingsJob = new CronJob('* * * * *', async function() {
+//At minute 0 past every 90th hour.
+var GetFundingsJob = new CronJob('00 */90 * * *', async function() {
   var hoy = new Date();
   console.log(chalk.cyan("GET FUNDINGS JOB STARTS AT: "+formatDate(hoy)));
   const fundings = await actions.GetFundings();
