@@ -33,6 +33,9 @@ class BitsoAPI {
     async getFundings(){
         return this.privateRequest("GET","/fundings");
     }
+    async getUserTrades(book,marker = null, sort = "desc", limit = 100){
+        return this.privateRequest("GET","/user_trades");
+    }
     async withdrawCrypto(
         currency,
         amount,
@@ -92,6 +95,7 @@ class BitsoAPI {
         let authorization = `Bitso ${
             this.BITSO_API_KEY
         }:${nonce}:${hexed_signature}`;
+        //console.log(authorization);
         options.headers.Authorization = authorization;
         let req = await https.request(options);
         if (req.data) return req.data;

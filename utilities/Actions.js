@@ -89,6 +89,15 @@ exports.GetTrades = async function (book) {
         display.displayError(Exception);
     }
 }
+exports.GetUserTrades = async function (book) {
+    display.preMessage("GET USER TRADES", book);
+    try {
+        let response = await bitsoAPI.getUserTrades(book);
+        if (display.checkIfSuccessful("GET USER TRADES", response)) return response.payload;
+    } catch (Exception) {
+        display.displayError(Exception);
+    }
+}
 exports.GetFundings = async function () {
     display.preMessage("GET FUNDINGS");
     try {
