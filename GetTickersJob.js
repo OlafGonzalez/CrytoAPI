@@ -36,7 +36,7 @@ var SaveTickerJob = new CronJob('*/10 * * * * *', async function() {
     Number(tickerBTCMXN.vwap),
     Number(tickerBTCMXN.ask),
     Number(tickerBTCMXN.bid),
-    formatDate(hoy)
+    various.formatDate(hoy)
   );
 
 }, null, true, 'America/Mexico_City');
