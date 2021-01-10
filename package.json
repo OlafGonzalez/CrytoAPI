@@ -19,6 +19,7 @@
     "httpie": "^1.1.2",
     "mysql": "^2.18.1",
     "node-cron": "^2.0.3",
+    "strtotime": "^1.0.0",
     "trading-signals": "^1.2.1"
   }
 }

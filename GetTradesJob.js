@@ -4,6 +4,8 @@ var CronJob = require('cron').CronJob;
 const chalk = require("chalk");
 const query = require('./utilities/Query')
 const actions = require('./utilities/Actions');
+const various = require('./utilities/Various')
+
 /*
 # ┌────────────── second (optional)
 # │ ┌──────────── minute
@@ -20,7 +22,7 @@ const actions = require('./utilities/Actions');
 //async function main (){
 var GetTradesJob = new CronJob('*/10 * * * * *', async function() {
     var hoy = new Date();
-    console.log(chalk.cyan("GET TRADES JOB STARTS AT: "+formatDate(hoy)));
+    console.log(chalk.cyan("GET TRADES JOB STARTS AT: "+various.formatDate(hoy)));
     const trades = await actions.GetUserTrades("btc_mxn");
     //console.log(trades)
 
@@ -46,27 +48,3 @@ var GetTradesJob = new CronJob('*/10 * * * * *', async function() {
 
 //main();
 
-
-function formatDate(date) {
-    var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear(),
-      hour = d.getHours(),
-      minutes = d.getMinutes(),
-      seconds = d.getSeconds();
-  
-    if (month.length < 2)
-      month = '0' + month;
-    if (day.length < 2)
-      day = '0' + day;
-    if (hour.length < 2)
-      hour = '0' + hour;
-    if(minutes < 9)
-      minutes = '0' + minutes;
-    if(seconds < 9)
-      seconds = '0' + seconds;
-    
-    var fecha = year +'-'+ month +'-'+ day +' '+ hour +':'+ minutes +':'+ seconds;
-    return fecha;
-  }
