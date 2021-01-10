@@ -31,7 +31,7 @@ var GetTradesJob = new CronJob('*/10 * * * * *', async function() {
             trade.book,
             trade.minor,
             trade.major,
-            formatDate(trade.created_at),
+            various.formatDate(trade.created_at),
             trade.fees_amount,
             trade.fees_currency,
             trade.minor_currency,
