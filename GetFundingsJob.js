@@ -33,7 +33,7 @@ var GetFundingsJob = new CronJob('00 */90 * * *', async function() {
       funding.currency,
       funding.details.sender_name,
       funding.details.sender_clabe,
-      formatDate(funding.created_at));
+      various.formatDate(funding.created_at));
   });
 
 }, null, true, 'America/Mexico_City');
